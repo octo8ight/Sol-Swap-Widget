@@ -5,11 +5,10 @@ import { useUnifiedWalletContext, useWallet } from '@jup-ag/wallet-adapter';
 const IntegratedTerminal = (props: {
   rpcUrl: string;
   formProps: FormProps;
-  simulateWalletPassthrough: boolean;
   strictTokenList: boolean;
   defaultExplorer: DEFAULT_EXPLORER;
 }) => {
-  const { rpcUrl, formProps, simulateWalletPassthrough, strictTokenList, defaultExplorer } = props;
+  const { rpcUrl, formProps, strictTokenList, defaultExplorer } = props;
   const [isLoaded, setIsLoaded] = useState(false);
 
   const passthroughWalletContextState = useWallet();
@@ -21,8 +20,6 @@ const IntegratedTerminal = (props: {
       integratedTargetId: 'integrated-terminal',
       endpoint: rpcUrl,
       formProps,
-      enableWalletPassthrough: simulateWalletPassthrough,
-      passthroughWalletContextState: simulateWalletPassthrough ? passthroughWalletContextState : undefined,
       onRequestConnectWallet: () => setShowModal(true),
       strictTokenList,
       defaultExplorer,
@@ -48,7 +45,7 @@ const IntegratedTerminal = (props: {
         launchTerminal();
       }
     }, 200);
-  }, [isLoaded, simulateWalletPassthrough, props]);
+  }, [isLoaded, props]);
 
   // To make sure passthrough wallet are synced
   useEffect(() => {
