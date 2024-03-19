@@ -8,7 +8,7 @@ import '../styles/globals.css';
 import AppHeader from 'src/components/AppHeader/AppHeader';
 import Footer from 'src/components/Footer/Footer';
 
-import { SolflareWalletAdapter, UnsafeBurnerWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { SolflareWalletAdapter } from '@solana/wallet-adapter-wallets';
 import classNames from 'classnames';
 import { useForm } from 'react-hook-form';
 import FormConfigurator from 'src/components/FormConfigurator';
@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const watchAllFields = watch();
 
   // Solflare wallet adapter comes with Metamask Snaps supports
-  const wallets = useMemo(() => [new UnsafeBurnerWalletAdapter(), new SolflareWalletAdapter()], []);
+  const wallets = useMemo(() => [ new SolflareWalletAdapter()], []);
 
   const ShouldWrapWalletProvider = useMemo(() => {
     return watchAllFields.simulateWalletPassthrough
