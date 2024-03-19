@@ -95,6 +95,7 @@ export default function App({ Component, pageProps }: AppProps) {
                       rpcUrl={rpcUrl}
                       formProps={watchAllFields.formProps}
                       strictTokenList={watchAllFields.strictTokenList}
+                      simulateWalletPassthrough={false}
                       defaultExplorer={watchAllFields.defaultExplorer}
                     />
                   </div>
