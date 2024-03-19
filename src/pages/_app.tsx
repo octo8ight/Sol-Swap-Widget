@@ -90,17 +90,10 @@ export default function App({ Component, pageProps }: AppProps) {
             <div className="max-w-6xl bg-black/25 mt-12 rounded-xl flex flex-col md:flex-row w-full md:p-4 relative">
               <ShouldWrapWalletProvider>
                 <div className="mt-8 md:mt-0 md:ml-4 h-full w-full bg-black/40 rounded-xl flex flex-col">
-                  {watchAllFields.simulateWalletPassthrough ? (
-                    <div className="absolute right-6 top-8 text-white flex flex-col justify-center text-center">
-                      <div className="text-xs mb-1">Simulate dApp Wallet</div>
-                      <UnifiedWalletButton />
-                    </div>
-                  ) : null}
                   <div className="flex flex-grow items-center justify-center text-white/75">
                     <IntegratedTerminal
                       rpcUrl={rpcUrl}
                       formProps={watchAllFields.formProps}
-                      // simulateWalletPassthrough={watchAllFields.simulateWalletPassthrough}
                       strictTokenList={watchAllFields.strictTokenList}
                       defaultExplorer={watchAllFields.defaultExplorer}
                     />
